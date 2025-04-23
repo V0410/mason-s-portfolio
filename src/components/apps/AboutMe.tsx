@@ -23,7 +23,7 @@ const About = () => {
       <div className="mt-4 md:mt-8 text-lg md:text-2xl text-center px-1 cursor-text">
         <div><span className="font-bold text-4xl">Mason Plumlee</span></div>
         <div className="font-normal ml-1 flex justify-center w-full"><span className="text-pink-600 font-bold italic md:w-full w-[80%]">Veteran NBA Center | NCAA Champion | Team-First Leader</span></div>
-        <div className="text-sm">Over 10 years of pro experience built on hustle, high IQ play, and team culture.</div>
+        <div className="text-sm flex justify-center w-full"><span className="md:w-full w-[80%]">Over 10 years of pro experience built on hustle, high IQ play, and team culture.</span></div>
       </div>
       <div className="mt-4 relative my-8 pt-px bg-black dark:bg-white w-32 w-48">
         <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 left-0"></div>

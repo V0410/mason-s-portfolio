@@ -87,7 +87,7 @@ const Childhood = () => {
         childhood_list.map((project, index) => {
           return (
             <div key={index} className="w-full flex flex-col px-4 py-2">
-              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900'>
+              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900 p-2'>
                 <div className="py-2 px-4 w-full md:w-[calc(100%-280px)]">
                   <div className="flex flex-wrap justify-between items-center">
                     <div className=" text-base md:text-lg mr-2">{project.name}</div>
@@ -147,7 +147,7 @@ const Education = () => {
         education_list.map((project, index) => {
           return (
             <div key={index} className="w-full flex flex-col px-4 py-2">
-              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900'>
+              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900 p-2'>
                 <div className="py-2 px-4 w-full md:w-[calc(100%-280px)]">
                   <div className="flex flex-wrap justify-between items-center">
                     <div className=" text-base md:text-lg mr-2">{project.name}</div>
@@ -256,7 +256,7 @@ const Career = () => {
         career_list.map((project, index) => {
           return (
             <div key={index} className="w-full flex flex-col px-4 py-2">
-              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900'>
+              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900 p-2'>
                 <div className="py-2 px-4 w-full md:w-[calc(100%-280px)]">
                   <div className="flex flex-wrap justify-between items-center">
                     <div className=" text-base md:text-lg mr-2">{project.name}</div>

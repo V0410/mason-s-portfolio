@@ -22,8 +22,8 @@ const About = () => {
       </div>
       <div className="mt-4 md:mt-8 text-lg md:text-2xl text-center px-1 cursor-text">
         <div><span className="font-bold text-4xl">Mason Plumlee</span></div>
-        <div className="font-normal ml-1"><span className="text-pink-600 font-bold italic">Veteran NBA Center | NCAA Champion | Team-First Leader</span></div>
-        <div className="text-sm">Over 10 years of pro experience built on hustle, high IQ play, and team culture.</div>
+        <div className="font-normal ml-1 flex justify-center w-full"><span className="text-pink-600 font-bold italic md:w-full w-[80%]">Veteran NBA Center | NCAA Champion | Team-First Leader</span></div>
+        <div className="text-sm flex justify-center w-full"><span className="md:w-full w-[80%]">Over 10 years of pro experience built on hustle, high IQ play, and team culture.</span></div>
       </div>
       <div className="mt-4 relative my-8 pt-px bg-black dark:bg-white w-32 w-48">
         <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 left-0"></div>
@@ -87,7 +87,7 @@ const Childhood = () => {
         childhood_list.map((project, index) => {
           return (
             <div key={index} className="w-full flex flex-col px-4 py-2">
-              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900'>
+              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900 p-2'>
                 <div className="py-2 px-4 w-full md:w-[calc(100%-280px)]">
                   <div className="flex flex-wrap justify-between items-center">
                     <div className=" text-base md:text-lg mr-2">{project.name}</div>
@@ -147,7 +147,7 @@ const Education = () => {
         education_list.map((project, index) => {
           return (
             <div key={index} className="w-full flex flex-col px-4 py-2">
-              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900'>
+              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900 p-2'>
                 <div className="py-2 px-4 w-full md:w-[calc(100%-280px)]">
                   <div className="flex flex-wrap justify-between items-center">
                     <div className=" text-base md:text-lg mr-2">{project.name}</div>
@@ -256,7 +256,7 @@ const Career = () => {
         career_list.map((project, index) => {
           return (
             <div key={index} className="w-full flex flex-col px-4 py-2">
-              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900'>
+              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900 p-2'>
                 <div className="py-2 px-4 w-full md:w-[calc(100%-280px)]">
                   <div className="flex flex-wrap justify-between items-center">
                     <div className=" text-base md:text-lg mr-2">{project.name}</div>

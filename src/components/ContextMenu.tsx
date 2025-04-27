@@ -37,32 +37,35 @@ const ContextMenu = () => {
         <div ref={ref} id="default-menu" className={"w-48 invisible menu-box z-100 text-sm"}>
             <MenuItemGroup>
                 <MenuItem>
-                    <a rel="noreferrer noopener" href="https://twitter.com/masonplumlee" target="_blank" className="w-full cursor-pointer">
-                        🙋‍♂️<span className="ml-2">Follow on <strong>Twitter</strong></span>
+                    <a rel="noreferrer noopener" href="https://twitter.com/masonplumlee" target="_blank" className="w-full cursor-pointer flex gap-1 items-center">
+                        <img src="img/icons/contacts/twitter.png" alt="twitter" className="size-5"/>
+                        <span className="ml-2">Follow on <strong>Twitter</strong></span>
                     </a>
                 </MenuItem>
                 <MenuItem>
-                    <a rel="noreferrer noopener" href="https://www.facebook.com/MasonPlumlee24/" target="_blank" className="w-full cursor-pointer">
-                        🙋‍♂️<span className="ml-2">Follow on <strong>Facebook</strong></span>
-                    </a>
-                </MenuItem>
-            </MenuItemGroup>
-            <MenuItemGroup>
-                <MenuItem>
-                    <a rel="noreferrer noopener" href="https://www.youtube.com/channel/UCELBx0eOrOR0w7wbMv3bDJQ" target="_blank" className="w-full cursor-pointer">
-                        🙋‍♂️<span className="ml-2">Follow on <strong>Youtube</strong></span>
+                    <a rel="noreferrer noopener" href="https://www.facebook.com/MasonPlumlee24/" target="_blank" className="w-full cursor-pointer flex gap-1 items-center">
+                        <img src="img/icons/contacts/facebook.png" alt="facebook" className="size-5"/>
+                        <span className="ml-2">Follow on <strong>Facebook</strong></span>
                     </a>
                 </MenuItem>
                 <MenuItem>
-                    <a rel="noreferrer noopener" href="https://www.linkedin.com/in/mason-plumlee/" target="_blank" className="w-full cursor-pointer">
-                        🙋‍♂️<span className="ml-2">Follow on <strong>LinkedIn</strong></span>
+                    <a rel="noreferrer noopener" href="https://www.youtube.com/channel/UCELBx0eOrOR0w7wbMv3bDJQ" target="_blank" className="w-full cursor-pointer flex gap-1 items-center">
+                        <img src="img/icons/contacts/youtube.png" alt="youtube" className="size-5"/>
+                        <span className="ml-2">Follow on <strong>Youtube</strong></span>
+                    </a>
+                </MenuItem>
+                <MenuItem>
+                    <a rel="noreferrer noopener" href="https://www.linkedin.com/in/mason-plumlee/" target="_blank" className="w-full cursor-pointer flex gap-1 items-center">
+                        <img src="img/icons/contacts/linkedin.png" alt="linkedin" className="size-5"/>
+                        <span className="ml-2">Follow on <strong>LinkedIn</strong></span>
                     </a>
                 </MenuItem>
             </MenuItemGroup>
             <MenuItemGroup border={false}>
                 <MenuItem>
-                    <div onClick={() => { localStorage.clear(); window.location.reload() }} className="w-full cursor-pointer">
-                        🧹<span className="ml-2">Reset Mac</span>
+                    <div onClick={() => { localStorage.clear(); window.location.reload() }} className="w-full cursor-pointer flex gap-1 items-center">
+                    <img src="img/icons/user.png" alt="user" className="size-5"/>
+                    <span className="ml-2">Reset Mac</span>
                     </div>
                 </MenuItem>
             </MenuItemGroup>

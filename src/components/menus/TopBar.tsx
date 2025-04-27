@@ -244,8 +244,7 @@ const TopBar = (props: TopBarProps) => {
         )}
 
         <TopBarItem>
-          <span>{format(state.date, "eee MMM d")}</span>
-          <span>{format(state.date, "h:mm aa")}</span>
+          <span>Mon Mar 5. 1990.</span>
         </TopBarItem>
       </div>
     </div>

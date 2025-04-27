@@ -1,11 +1,12 @@
 import React from "react";
 import { format } from "date-fns";
-import { apps, launchpadApps } from "~/configs";
+import { apps, launchpadApps, shopApps } from "~/configs";
 import type { LaunchpadData, AppsData } from "~/types";
 
 const APPS: { [key: string]: (LaunchpadData | AppsData)[] } = {
   app: apps,
-  portfolio: launchpadApps
+  portfolio: launchpadApps,
+  shops: shopApps
 };
 
 const getRandom = (min: number, max: number) => {
@@ -25,6 +26,7 @@ interface SpotlightProps {
   toggleSpotlight: () => void;
   openApp: (id: string) => void;
   toggleLaunchpad: (target: boolean) => void;
+  toggleShop: (target: boolean) => void;
   btnRef: React.RefObject<HTMLDivElement>;
 }
 
@@ -32,6 +34,7 @@ export default function Spotlight({
   toggleSpotlight,
   openApp,
   toggleLaunchpad,
+  toggleShop,
   btnRef
 }: SpotlightProps) {
   const spotlightRef = useRef<HTMLDivElement>(null);
@@ -102,6 +105,7 @@ export default function Spotlight({
     if (curDetails.type === "app" && !curDetails.link) {
       const id = curDetails.id;
       if (id === "launchpad") toggleLaunchpad(true);
+      else if (id === "shop") toggleShop(true);
       else openApp(id);
       toggleSpotlight();
     } else {

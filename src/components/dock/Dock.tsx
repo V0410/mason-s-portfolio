@@ -7,7 +7,9 @@ interface DockProps {
     [key: string]: boolean;
   };
   showLaunchpad: boolean;
+  showShop: boolean;
   toggleLaunchpad: (target: boolean) => void;
+  toggleShop: (target: boolean) => void;
   hide: boolean;
 }
 
@@ -15,7 +17,9 @@ export default function Dock({
   open,
   showApps,
   showLaunchpad,
+  showShop,
   toggleLaunchpad,
+  toggleShop,
   hide
 }: DockProps) {
   const { dockSize, dockMag } = useStore((state) => ({
@@ -27,6 +31,14 @@ export default function Dock({
     if (id === "launchpad") toggleLaunchpad(!showLaunchpad);
     else {
       toggleLaunchpad(false);
+      open(id);
+    }
+  };
+
+  const openShop = (id: string) => {
+    if (id === "shop") toggleShop(!showShop);
+    else {
+      toggleShop(false);
       open(id);
     }
   };
@@ -57,6 +69,7 @@ export default function Dock({
             mouseX={mouseX}
             desktop={app.desktop}
             openApp={openApp}
+            openShop={openShop}
             isOpen={app.desktop && showApps[app.id]}
             link={app.link}
             dockSize={dockSize}

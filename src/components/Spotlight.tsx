@@ -155,8 +155,9 @@ export default function Spotlight({
   const updateAppList = () => {
     const app = getTypeAppList("app", 0);
     const portfolio = getTypeAppList("portfolio", app.appIdList.length);
+    const shops = getTypeAppList("shops", app.appIdList.length);
 
-    const newAppIdList = [...app.appIdList, ...portfolio.appIdList];
+    const newAppIdList = [...app.appIdList, ...portfolio.appIdList, ...shops.appIdList];
     // don't show app details when there is no associating app
     if (newAppIdList.length === 0) setCurDetails(null);
 
@@ -174,6 +175,14 @@ export default function Spotlight({
               Portfolio
             </div>
             <ul className="w-full text-xs">{portfolio.appList}</ul>
+          </div>
+        )}
+        {shops.appList.length !== 0 && (
+          <div>
+            <div className="spotlight-type mt-1.5 before:(content-empty absolute left-0 top-0 ml-2 w-63.5 border-t border-menu)">
+              Shops
+            </div>
+            <ul className="w-full text-xs">{shops.appList}</ul>
           </div>
         )}
       </div>

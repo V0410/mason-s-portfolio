@@ -21,40 +21,42 @@ const apps: AppsData[] = [
   {
     id: "basketballcamp",
     title: "BasketballCamp",
-    desktop: true,
+    desktop: false,
     width: 1000,
     height: 800,
-    x: 80,
-    y: -30,
     img: "img/icons/launchpad/basketballcam.png",
     link: "https://plumleebasketball.com/"
   },
   {
     id: "AGC",
     title: "AGC",
-    desktop: true,
+    desktop: false,
     width: 1024,
     height: 768,
-    x: -20,
     img: "img/icons/launchpad/agc.png",
     link: "https://www.helloagc.com"
   },
   {
     id: "twitter",
     title: "twitter",
-    desktop: true,
+    desktop: false,
     width: 600,
     height: 580,
-    y: -20,
     img: "img/icons/contacts/twitter.png",
     link: "https://x.com/masonplumlee"
   },
   {
     id: "linkedin",
     title: "Linkedin",
-    desktop: true,
+    desktop: false,
     img: "img/icons/contacts/linkedin.png",
-    link: "https://www.linkedin.com/in/mason-plumlee/e"
+    link: "https://www.linkedin.com/in/mason-plumlee/"
+  },
+  {
+    id: "book",
+    title: "Book",
+    desktop: false,
+    img: "img/icons/book.png"
   },
   {
     id: "shop",

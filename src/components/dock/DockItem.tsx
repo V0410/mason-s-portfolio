@@ -71,7 +71,6 @@ interface DockItemProps {
   mouseX: MotionValue;
   desktop: boolean;
   openApp: (id: string) => void;
-  openShop: (id: string) => void;
   isOpen: boolean;
   link?: string;
   dockSize: number;
@@ -84,7 +83,6 @@ export default function DockItem({
   img,
   mouseX,
   desktop,
-  openShop,
   openApp,
   isOpen,
   link,
@@ -98,7 +96,7 @@ export default function DockItem({
   return (
     <li
       id={`dock-${id}`}
-      onClick={(desktop || id === "launchpad") ? () => openApp(id) : (desktop || id === "shop")  ? () => openShop(id) : () => {}}
+      onClick={(desktop || id === "launchpad") ? () => openApp(id) : () => {}}
       className="relative flex flex-col justify-end mb-1"
     >
       <p

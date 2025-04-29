@@ -65,7 +65,7 @@ export default function Launchpad({ show, toggleLaunchpad }: LaunchpadProps) {
           {search().map((app) => (
             <div key={`launchpad-${app.id}`} h="32 sm:36" flex="~ col">
               <a
-                className="w-14 sm:w-20 mx-auto cursor-pointer"
+                className="size-14 sm:size-20 mx-auto cursor-pointer flex justify-center items-center"
                 href={app.link}
                 target="_blank"
                 rel="noreferrer"

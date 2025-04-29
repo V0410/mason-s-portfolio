@@ -2,12 +2,6 @@ import type { LaunchpadData } from "~/types";
 
 const launchpadApps: LaunchpadData[] = [  
   {
-    id: "freelsolovc",
-    title: "Investor",
-    img: "img/icons/launchpad/brane.png",
-    link: "https://freesolovc.co/portfolio"
-  },
-  {
     id: "neurophos",
     title: "neurophos",
     img: "img/icons/launchpad/neurophos.jpg",
@@ -48,6 +42,48 @@ const launchpadApps: LaunchpadData[] = [
     title: "Divergent3D",
     img: "img/icons/launchpad/divergent3d.png",
     link: "https://www.divergent3d.com/"
+  },
+  {
+    id: "butterflynetwork",
+    title: "Butterflynetwork",
+    img: "img/icons/launchpad/butterflynetwork.png",
+    link: "https://www.butterflynetwork.com/"
+  },
+  {
+    id: "hyperfine",
+    title: "Hyperfine",
+    img: "img/icons/launchpad/hyperfine.png",
+    link: "https://hyperfine.io/"
+  },
+  {
+    id: "alphatau",
+    title: "Alphatau",
+    img: "img/icons/launchpad/alphatau.png",
+    link: "https://www.alphatau.com/"
+  },
+  {
+    id: "gethealthie",
+    title: "Gethealthie",
+    img: "img/icons/launchpad/gethealthie.png",
+    link: "https://www.gethealthie.com/"
+  },
+  {
+    id: "h1",
+    title: "H1",
+    img: "img/icons/launchpad/h1.jpg",
+    link: "https://h1.co/"
+  },
+  {
+    id: "cadence",
+    title: "Cadence",
+    img: "img/icons/launchpad/cadence.png",
+    link: "https://www.cadence.care/"
+  },
+  {
+    id: "getluna",
+    title: "Getluna",
+    img: "img/icons/launchpad/getluna.png",
+    link: "https://www.getluna.com/"
   }
 ];
 

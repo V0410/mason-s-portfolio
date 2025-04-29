@@ -9,6 +9,12 @@ const apps: AppsData[] = [
     img: "img/icons/launchpad.png"
   },  
   {
+    id: "shop",
+    title: "Shop",
+    desktop: false,
+    img: "img/icons/shop.png",
+  },
+  {
     id: "aboutme",
     title: "About Me",
     desktop: true,
@@ -53,17 +59,17 @@ const apps: AppsData[] = [
     link: "https://www.linkedin.com/in/mason-plumlee/"
   },
   {
+    id: "unnamed",
+    title: "Unnamed",
+    desktop: false,
+    img: "img/icons/unnamed.png",
+  },
+  {
     id: "book",
     title: "Book",
     desktop: false,
     img: "img/icons/book.png"
-  },
-  {
-    id: "shop",
-    title: "Shop",
-    desktop: false,
-    img: "img/icons/shop.png"
-  },
+  },  
 ];
 
 export default apps;

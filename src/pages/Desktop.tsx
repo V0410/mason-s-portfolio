@@ -21,7 +21,6 @@ interface DesktopState {
   currentTitle: string;
   hideDockAndTopbar: boolean;
   spotlight: boolean;
-  showShop: boolean;
 }
 
 export default function Desktop(props: MacActions) {
@@ -32,7 +31,6 @@ export default function Desktop(props: MacActions) {
     minApps: {},
     maxZ: 2,
     showLaunchpad: false,
-    showShop: false,
     currentTitle: "Finder",
     hideDockAndTopbar: false,
     spotlight: false
@@ -88,20 +86,7 @@ export default function Desktop(props: MacActions) {
       r.style.transition = "ease-out 0.2s";
     }
 
-    setState({ ...state, showLaunchpad: target, showShop: false });
-  };
-
-  const toggleShop = (target: boolean): void => {
-    const r = document.querySelector(`#shop`) as HTMLElement;
-    if (target) {
-      r.style.transform = "scale(1)";
-      r.style.transition = "ease-in 0.2s";
-    } else {
-      r.style.transform = "scale(1.1)";
-      r.style.transition = "ease-out 0.2s";
-    }
-
-    setState({ ...state, showShop: target, showLaunchpad: false });
+    setState({ ...state, showLaunchpad: target });
   };
 
   const toggleSpotlight = (): void => {
@@ -284,7 +269,6 @@ export default function Desktop(props: MacActions) {
         <Spotlight
           openApp={openApp}
           toggleLaunchpad={toggleLaunchpad}
-          toggleShop={toggleShop}
           toggleSpotlight={toggleSpotlight}
           btnRef={spotlightBtnRef as React.RefObject<HTMLDivElement>}
         />
@@ -293,16 +277,13 @@ export default function Desktop(props: MacActions) {
       {/* Launchpad */}
       <Launchpad show={state.showLaunchpad} toggleLaunchpad={toggleLaunchpad} />
 
-      <Shop show={state.showShop} toggleShop={toggleShop} />
 
       {/* Dock */}
       <Dock
         open={openApp}
         showApps={state.showApps}
-        showShop={state.showShop}
         showLaunchpad={state.showLaunchpad}
         toggleLaunchpad={toggleLaunchpad}
-        toggleShop={toggleShop}
         hide={state.hideDockAndTopbar}
       />
     </div>

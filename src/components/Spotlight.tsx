@@ -1,12 +1,11 @@
 import React from "react";
 import { format } from "date-fns";
-import { apps, launchpadApps, shopApps } from "~/configs";
+import { apps, launchpadApps } from "~/configs";
 import type { LaunchpadData, AppsData } from "~/types";
 
 const APPS: { [key: string]: (LaunchpadData | AppsData)[] } = {
   app: apps,
   portfolio: launchpadApps,
-  shops: shopApps
 };
 
 const getRandom = (min: number, max: number) => {
@@ -26,7 +25,6 @@ interface SpotlightProps {
   toggleSpotlight: () => void;
   openApp: (id: string) => void;
   toggleLaunchpad: (target: boolean) => void;
-  toggleShop: (target: boolean) => void;
   btnRef: React.RefObject<HTMLDivElement>;
 }
 
@@ -34,7 +32,6 @@ export default function Spotlight({
   toggleSpotlight,
   openApp,
   toggleLaunchpad,
-  toggleShop,
   btnRef
 }: SpotlightProps) {
   const spotlightRef = useRef<HTMLDivElement>(null);
@@ -105,7 +102,6 @@ export default function Spotlight({
     if (curDetails.type === "app" && !curDetails.link) {
       const id = curDetails.id;
       if (id === "launchpad") toggleLaunchpad(true);
-      else if (id === "shop") toggleShop(true);
       else openApp(id);
       toggleSpotlight();
     } else {
@@ -155,9 +151,8 @@ export default function Spotlight({
   const updateAppList = () => {
     const app = getTypeAppList("app", 0);
     const portfolio = getTypeAppList("portfolio", app.appIdList.length);
-    const shops = getTypeAppList("shops", app.appIdList.length);
 
-    const newAppIdList = [...app.appIdList, ...portfolio.appIdList, ...shops.appIdList];
+    const newAppIdList = [...app.appIdList, ...portfolio.appIdList];
     // don't show app details when there is no associating app
     if (newAppIdList.length === 0) setCurDetails(null);
 
@@ -175,14 +170,6 @@ export default function Spotlight({
               Portfolio
             </div>
             <ul className="w-full text-xs">{portfolio.appList}</ul>
-          </div>
-        )}
-        {shops.appList.length !== 0 && (
-          <div>
-            <div className="spotlight-type mt-1.5 before:(content-empty absolute left-0 top-0 ml-2 w-63.5 border-t border-menu)">
-              Shops
-            </div>
-            <ul className="w-full text-xs">{shops.appList}</ul>
           </div>
         )}
       </div>

@@ -28,8 +28,6 @@ const apps: AppsData[] = [
     id: "basketballcamp",
     title: "BasketballCamp",
     desktop: false,
-    width: 1000,
-    height: 800,
     img: "img/icons/launchpad/basketballcam.png",
     link: "https://plumleebasketball.com/"
   },
@@ -57,18 +55,26 @@ const apps: AppsData[] = [
     desktop: false,
     img: "img/icons/contacts/linkedin.png",
     link: "https://www.linkedin.com/in/mason-plumlee/"
-  },
-  {
-    id: "unnamed",
-    title: "Unnamed",
-    desktop: false,
-    img: "img/icons/unnamed.png",
-  },
+  },  
   {
     id: "book",
     title: "Book",
-    desktop: false,
-    img: "img/icons/book.png"
+    desktop: true,
+    width: 1024,
+    height: 768,
+    show: false,
+    img: "img/icons/book.png",
+    content: <Books />
+  },
+  {
+    id: "photo",
+    title: "Photo",
+    desktop: true,
+    width: 1024,
+    height: 768,
+    show: false,
+    img: "img/icons/photo.png",
+    content: <Photo />
   },  
 ];
 

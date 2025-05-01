@@ -16,5 +16,7 @@ export {
   WallpaperData,
   WebsitesData,
   SiteSectionData,
-  SiteData
+  SiteData,
+  BookData,
+  PhotoData,
 } from "./configs";

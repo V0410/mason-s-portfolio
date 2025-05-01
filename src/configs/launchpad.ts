@@ -84,7 +84,13 @@ const launchpadApps: LaunchpadData[] = [
     title: "Getluna",
     img: "img/icons/launchpad/getluna.png",
     link: "https://www.getluna.com/"
-  }
+  },
+  {
+    id: "unnamed",
+    title: "Unnamed",
+    img: "img/icons/unnamed.png",
+    link: "https://www.eatwellhospitality.com/"
+  },
 ];
 
 export default launchpadApps;

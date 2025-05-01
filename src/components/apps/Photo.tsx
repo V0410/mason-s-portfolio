@@ -15,8 +15,14 @@ const Photo = () => {
   const [search, setSearch] = useState("");
   const [filteredPhotos, setFilteredPhotos] = useState(photos);
   const [cols, setCols] = useState(1);
+  const [cols1, setCols1] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
   const { setModalPhoto } = useContext(GlobalContext);
+
+  useEffect(() => {
+    const width = containerRef.current?.offsetWidth || 400;
+      setCols1(view === "list" ? 1 : Math.floor(width / 200));
+  },[containerRef.current?.offsetWidth])
 
   // Filter photos by search
   useEffect(() => {
@@ -33,8 +39,7 @@ const Photo = () => {
     if (!containerRef.current) return;
 
     const updateCols = () => {
-      const width = containerRef.current?.offsetWidth || 400;
-      setCols(view === "list" ? 1 : Math.floor(width / 200));
+      setCols(view === "list" ? 1 : Math.floor(photos.length / cols1));
     };
 
     updateCols();
@@ -47,7 +52,8 @@ const Photo = () => {
     
 
     return () => observer.disconnect();
-  }, [view]);
+  }, [view, cols1]);
+
 
   // Handle keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -55,16 +61,16 @@ const Photo = () => {
     let nextIndex = selectedIndex ?? 0;
 
     switch (e.key) {
-      case "ArrowRight":
+      case "ArrowDown":
         nextIndex = Math.min(nextIndex + 1, filteredPhotos.length - 1);
         break;
-      case "ArrowLeft":
+      case "ArrowUp":
         nextIndex = Math.max(nextIndex - 1, 0);
         break;
-      case "ArrowDown":
+      case "ArrowRight":
         nextIndex = Math.min(nextIndex + cols, filteredPhotos.length - 1);
         break;
-      case "ArrowUp":
+      case "ArrowLeft":
         nextIndex = Math.max(nextIndex - cols, 0);
         break;
       case "Enter":
@@ -123,9 +129,10 @@ const Photo = () => {
         onKeyDown={handleKeyDown}
         className={`flex-1 overflow-auto p-4 ${
           view === "grid"
-            ? "columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-2"
-            : "flex flex-col gap-4"
+            ? `gap-2`
+            : "flex flex-col gap-1"
         }`}
+        style={{columnCount: cols1}}
       >
         {filteredPhotos.map((photo, i) => {
           const selected = i === selectedIndex;
@@ -134,8 +141,8 @@ const Photo = () => {
             <div
               key={photo.id}
               tabIndex={0}
-              className={`cursor-pointer outline-none break-inside-avoid mb-2 p-1 rounded-md transition ${
-                selected ? "bg-gray-400" : "hover:bg-gray-200"
+              className={`cursor-pointer outline-none break-inside-avoid p-1 rounded-md transition ${
+                selected ? "bg-gray-400" : "hover:bg-gray-300"
               } ${view === "list" ? "flex gap-3 items-center" : ""}`}
               onClick={() => setSelectedIndex(i)}
               onDoubleClick={() => setModalPhoto(photo.img)}
@@ -144,7 +151,7 @@ const Photo = () => {
               }}
             >
               <img
-                src={photo.img}
+                src={view === "list"? "/img/icons/jpg.png" : photo.img}
                 alt={photo.title}
                 className={`rounded-md shadow-sm ${
                   view === "list" ? "w-10" : "w-full"

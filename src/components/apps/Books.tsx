@@ -15,6 +15,7 @@ const Books = () => {
   const [search, setSearch] = useState("");
   const [filteredBooks, setFilteredBooks] = useState<BookData[]>(books);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [cols, setCols] = useState(1);
 
   useEffect(() => {
     setFilteredBooks(
@@ -25,10 +26,12 @@ const Books = () => {
     setSelectedIndex(null);
   }, [search]);
 
+
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (filteredBooks.length === 0) return;
     let nextIndex = selectedIndex ?? 0;
-    const cols = view === 'list' ? 1 : Math.floor((containerRef.current?.offsetWidth || 400) / 140);
+    setCols(view === 'list' ? 1 : (Math.floor((containerRef.current?.offsetWidth || 400) / 140) - 1));
 
     switch (e.key) {
       case "ArrowRight":
@@ -50,6 +53,10 @@ const Books = () => {
 
     setSelectedIndex(nextIndex);
   };
+
+  useEffect(() => {
+    setCols(view === 'list' ? 1 : (Math.floor((containerRef.current?.offsetWidth || 400) / 140)));
+  },[containerRef.current?.offsetWidth])
 
   return (
     <div className="w-full h-full bg-neutral-50 rounded-md shadow flex flex-col">
@@ -91,7 +98,7 @@ const Books = () => {
       {/* Book Grid/List */}
       <div
         ref={containerRef}
-        className="flex-1 overflow-auto p-4 flex flex-wrap content-start gap-4 justify-between"
+        className={`flex-1 overflow-auto p-4 flex flex-wrap content-start ${view === "grid"? 'gap-4' : 'gap-1'} justify-between`}
         tabIndex={0}
         onKeyDown={handleKeyDown}
       >
@@ -106,7 +113,7 @@ const Books = () => {
                 "cursor-pointer transition outline-none py-2",
                 view === "grid" && "flex flex-col items-center w-32",
                 view === "list" && "flex flex-row items-center gap-3 w-full pl-4",
-                selected ? "bg-gray-400 rounded-md" : "hover:bg-gray-200 rounded-md"
+                selected ? "bg-gray-400 rounded-md" : "hover:bg-gray-300 rounded-md"
               )}
               onClick={() => setSelectedIndex(i)}
               onDoubleClick={() => window.open(book.link, "_blank")}
@@ -115,11 +122,11 @@ const Books = () => {
               }}
             >
               <img
-                src={book.img}
+                src={view === "list"? "/img/icons/pdf.png" : book.img}
                 alt={book.title}
                 className={twMerge(
                   "rounded",
-                  view === "list" ? "w-5" : "w-20"
+                  view === "list" ? "w-10" : "w-20"
                 )}
               />
               <p

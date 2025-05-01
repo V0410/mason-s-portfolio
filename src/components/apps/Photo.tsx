@@ -39,7 +39,8 @@ const Photo = () => {
     if (!containerRef.current) return;
 
     const updateCols = () => {
-      setCols(view === "list" ? 1 : Math.floor(photos.length / cols1));
+      const width = containerRef.current?.offsetWidth || 400;
+      setCols(view === "list" ? 1 : Math.floor(photos.length / Math.floor(width / 200)));
     };
 
     updateCols();
@@ -52,7 +53,7 @@ const Photo = () => {
     
 
     return () => observer.disconnect();
-  }, [view, cols1]);
+  }, [view, containerRef.current?.offsetWidth]);
 
 
   // Handle keyboard navigation
@@ -84,7 +85,7 @@ const Photo = () => {
   return (
     <div className="w-full h-full bg-white rounded-md shadow-md flex flex-col">
       {/* Top Bar */}
-      <div className="h-10 bg-gray-100 flex items-center justify-between px-3 border-b border-gray-300">
+      <div className="h-10 bg-gray-100 flex items-center justify-between px-3 bg-gray-300">
         <div className="flex items-center">
           <button
             onClick={() => setView("grid")}
@@ -143,7 +144,7 @@ const Photo = () => {
               tabIndex={0}
               className={`cursor-pointer outline-none break-inside-avoid p-1 rounded-md transition ${
                 selected ? "bg-gray-400" : "hover:bg-gray-300"
-              } ${view === "list" ? "flex gap-3 items-center" : ""}`}
+              } ${view === "list" ? "flex gap-3 items-center pl-4" : ""}`}
               onClick={() => setSelectedIndex(i)}
               onDoubleClick={() => setModalPhoto(photo.img)}
               onKeyDown={(e) => {
@@ -153,14 +154,14 @@ const Photo = () => {
               <img
                 src={view === "list"? "/img/icons/jpg.png" : photo.img}
                 alt={photo.title}
-                className={`rounded-md shadow-sm ${
-                  view === "list" ? "w-10" : "w-full"
+                className={` ${
+                  view === "list" ? "w-6" : "w-full"
                 }`}
               />
               <p
-                className={`text-sm mt-1 px-2 py-1 text-nowrap ${
+                className={`text-sm mt-1 px-2 text-nowrap ${
                   selected ? "text-black font-medium" : "text-gray-700"
-                } ${view === "list" ? "mt-0" : "text-center"}`}
+                } ${view === "list" ? "mt-0 py-[2px]" : "text-center py-1"}`}
               >
                 {photo.title}
               </p>

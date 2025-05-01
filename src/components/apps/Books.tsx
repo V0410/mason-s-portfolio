@@ -61,7 +61,7 @@ const Books = () => {
   return (
     <div className="w-full h-full bg-neutral-50 rounded-md shadow flex flex-col">
       {/* Top Bar */}
-      <div className="h-10 bg-gray-100 flex items-center justify-between px-3 border-b border-gray-300">
+      <div className="h-10 bg-gray-300 flex items-center justify-between px-3">
         <div className="flex items-center">
           <button
             onClick={() => setView("grid")}
@@ -110,9 +110,9 @@ const Books = () => {
               key={book.id}
               tabIndex={0}
               className={twMerge(
-                "cursor-pointer transition outline-none py-2",
-                view === "grid" && "flex flex-col items-center w-32",
-                view === "list" && "flex flex-row items-center gap-3 w-full pl-4",
+                "cursor-pointer transition outline-none",
+                view === "grid" && "flex flex-col items-center w-32 py-2",
+                view === "list" && "flex flex-row items-center gap-3 w-full pl-4 py-[2px]",
                 selected ? "bg-gray-400 rounded-md" : "hover:bg-gray-300 rounded-md"
               )}
               onClick={() => setSelectedIndex(i)}
@@ -126,7 +126,7 @@ const Books = () => {
                 alt={book.title}
                 className={twMerge(
                   "rounded",
-                  view === "list" ? "w-10" : "w-20"
+                  view === "list" ? "w-8" : "w-20"
                 )}
               />
               <p

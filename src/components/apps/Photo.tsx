@@ -158,12 +158,18 @@ const Photo = () => {
                 }`}
               />
               <p
-                className={`text-sm mt-1 px-2 py-1 ${
+                className={`text-sm mt-1 px-2 py-1 text-nowrap ${
                   selected ? "text-black font-medium" : "text-gray-700"
                 } ${view === "list" ? "mt-0" : "text-center"}`}
               >
                 {photo.title}
               </p>
+              {
+                view === "list" &&
+                <p className="w-full text-center text-xs text-gray-700">
+                  {photo.description}
+                </p>
+              }
             </div>
           );
         })}

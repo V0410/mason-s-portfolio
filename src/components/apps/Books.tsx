@@ -131,13 +131,19 @@ const Books = () => {
               />
               <p
                 className={twMerge(
-                  "text-xs mt-1 text-center truncate px-2 py-1",
+                  "text-xs mt-1 text-center px-2 py-1 text-nowrap",
                   selected ? "text-black font-medium" : "text-gray-700",
                   view === "list" && "mt-0 text-left"
                 )}
               >
                 {book.title}
               </p>
+              {
+                view === "list" &&
+                <p className="w-full text-center text-xs text-gray-700">
+                  {book.description}
+                </p>
+              }
             </div>
           );
         })}

@@ -64,7 +64,7 @@ const launchpadApps: LaunchpadData[] = [
   {
     id: "gethealthie",
     title: "Gethealthie",
-    img: "img/icons/launchpad/gethealthie.png",
+    img: "img/icons/launchpad/gethealthie.svg",
     link: "https://www.gethealthie.com/"
   },
   {

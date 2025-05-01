@@ -7,7 +7,7 @@ import { FaList, FaSearch } from "react-icons/fa";
 import { TiThLarge } from "react-icons/ti";
 import { twMerge } from "tailwind-merge";
 
-type ViewType = "grid" | "list" ;
+type ViewType = "grid" | "list";
 
 const Books = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -52,32 +52,43 @@ const Books = () => {
   };
 
   return (
-    <div className="w-full h-full bg-white rounded-md shadow-md flex flex-col">
+    <div className="w-full h-full bg-neutral-50 rounded-md shadow flex flex-col">
       {/* Top Bar */}
-      <div className="h-9 bg-[#8b8b8b] flex items-center justify-between px-3">
+      <div className="h-10 bg-gray-100 flex items-center justify-between px-3 border-b border-gray-300">
         <div className="flex items-center">
-					<button onClick={() => setView("grid")} className={`${view === 'grid'? "bg-[#4f4f4f]" : "bg-white"} p-1 rounded-l-md`}>
-						<TiThLarge className={`${view === 'grid'? "text-white" : "text-[#4f4f4f]"}`} />
-					</button>
-          <button onClick={() => setView("list")} className={`${view === 'list'? "bg-[#4f4f4f]" : "bg-white"} p-1 rounded-r-md`}>
-						<FaList className={`${view === 'list'? "text-white" : "text-[#4f4f4f]"}`} />
-						</button>
-				</div>
-				<div className="relative">
-					<span className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500">
-						<FaSearch size={14} />
-					</span>
-					<input
-						placeholder="Search..."
-						className="pl-7 pr-2 py-1 rounded border border-gray-400 text-sm"
-						value={search}
-						onChange={(e) => setSearch(e.target.value)}
-					/>
-				</div>
-
+          <button
+            onClick={() => setView("grid")}
+            className={twMerge(
+              "p-1 rounded-l-md border border-gray-300",
+              view === "grid" ? "bg-gray-800 border-gray-800 text-white" : "bg-white text-gray-700 border-gray-300"
+            )}
+          >
+            <TiThLarge />
+          </button>
+          <button
+            onClick={() => setView("list")}
+            className={twMerge(
+              "p-1 rounded-r-md border ",
+              view === "list" ? "bg-gray-800 border-gray-800 text-white" : "bg-white text-gray-700 border-gray-300"
+            )}
+          >
+            <FaList />
+          </button>
+        </div>
+        <div className="relative">
+          <span className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500">
+            <FaSearch size={14} />
+          </span>
+          <input
+            placeholder="Search..."
+            className="pl-7 pr-2 py-1 rounded border border-gray-300 text-sm bg-white text-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-400"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
       </div>
 
-      {/* Book Grid */}
+      {/* Book Grid/List */}
       <div
         ref={containerRef}
         className="flex-1 overflow-auto p-4 flex flex-wrap content-start gap-4 justify-between"
@@ -95,7 +106,7 @@ const Books = () => {
                 "cursor-pointer transition outline-none py-2",
                 view === "grid" && "flex flex-col items-center w-32",
                 view === "list" && "flex flex-row items-center gap-3 w-full pl-4",
-                selected && "bg-[#999999] rounded-md"
+                selected ? "bg-gray-400 rounded-md" : "hover:bg-gray-200 rounded-md"
               )}
               onClick={() => setSelectedIndex(i)}
               onDoubleClick={() => window.open(book.link, "_blank")}
@@ -107,15 +118,14 @@ const Books = () => {
                 src={book.img}
                 alt={book.title}
                 className={twMerge(
-                  "rounded border",
-									selected ? "border-[#fb783d]": "",
+                  "rounded",
                   view === "list" ? "w-5" : "w-20"
                 )}
               />
               <p
                 className={twMerge(
                   "text-xs mt-1 text-center truncate px-2 py-1",
-                  selected ? "bg-[#fb783d] text-white rounded" : "text-black",
+                  selected ? "text-black font-medium" : "text-gray-700",
                   view === "list" && "mt-0 text-left"
                 )}
               >

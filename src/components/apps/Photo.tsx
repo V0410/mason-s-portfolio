@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import photos from "~/configs/photos";
 import { FaList, FaSearch } from "react-icons/fa";
 import { TiThLarge } from "react-icons/ti";
+import { twMerge } from "tailwind-merge";
+import { GlobalContext } from "~/context/GlobalContext";
 
 type ViewType = "grid" | "list";
 
@@ -12,9 +14,11 @@ const Photo = () => {
   const [view, setView] = useState<ViewType>("grid");
   const [search, setSearch] = useState("");
   const [filteredPhotos, setFilteredPhotos] = useState(photos);
-  const [modalPhoto, setModalPhoto] = useState<string | null>(null);
+  const [cols, setCols] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { setModalPhoto } = useContext(GlobalContext);
 
+  // Filter photos by search
   useEffect(() => {
     setFilteredPhotos(
       photos.filter((p) =>
@@ -24,10 +28,31 @@ const Photo = () => {
     setSelectedIndex(null);
   }, [search]);
 
+  // Update column count on resize or view change
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const updateCols = () => {
+      const width = containerRef.current?.offsetWidth || 400;
+      setCols(view === "list" ? 1 : Math.floor(width / 200));
+    };
+
+    updateCols();
+
+    const observer = new ResizeObserver(() => {
+      updateCols();
+    });
+
+    observer.observe(containerRef.current);
+    
+
+    return () => observer.disconnect();
+  }, [view]);
+
+  // Handle keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (filteredPhotos.length === 0) return;
     let nextIndex = selectedIndex ?? 0;
-    const cols = view === "list" ? 1 : Math.floor((containerRef.current?.offsetWidth || 400) / 200);
 
     switch (e.key) {
       case "ArrowRight":
@@ -53,13 +78,29 @@ const Photo = () => {
   return (
     <div className="w-full h-full bg-white rounded-md shadow-md flex flex-col">
       {/* Top Bar */}
-      <div className="h-9 bg-[#8b8b8b] flex items-center justify-between px-3">
+      <div className="h-10 bg-gray-100 flex items-center justify-between px-3 border-b border-gray-300">
         <div className="flex items-center">
-          <button onClick={() => setView("grid")} className={`${view === "grid" ? "bg-[#4f4f4f]" : "bg-white"} p-1 rounded-l-md`}>
-            <TiThLarge className={`${view === "grid" ? "text-white" : "text-[#4f4f4f]"}`} />
+          <button
+            onClick={() => setView("grid")}
+            className={twMerge(
+              "p-1 rounded-l-md border border-gray-300",
+              view === "grid"
+                ? "bg-gray-800 border-gray-800 text-white"
+                : "bg-white text-gray-700 border-gray-300"
+            )}
+          >
+            <TiThLarge />
           </button>
-          <button onClick={() => setView("list")} className={`${view === "list" ? "bg-[#4f4f4f]" : "bg-white"} p-1 rounded-r-md`}>
-            <FaList className={`${view === "list" ? "text-white" : "text-[#4f4f4f]"}`} />
+          <button
+            onClick={() => setView("list")}
+            className={twMerge(
+              "p-1 rounded-r-md border",
+              view === "list"
+                ? "bg-gray-800 border-gray-800 text-white"
+                : "bg-white text-gray-700 border-gray-300"
+            )}
+          >
+            <FaList />
           </button>
         </div>
         <div className="relative">
@@ -68,7 +109,7 @@ const Photo = () => {
           </span>
           <input
             placeholder="Search..."
-            className="pl-7 pr-2 py-1 rounded border border-gray-400 text-sm"
+            className="pl-7 pr-2 py-1 rounded border border-gray-300 text-sm bg-white text-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-400"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -81,7 +122,9 @@ const Photo = () => {
         tabIndex={0}
         onKeyDown={handleKeyDown}
         className={`flex-1 overflow-auto p-4 ${
-          view === "grid" ? "columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-2" : "flex flex-col gap-4"
+          view === "grid"
+            ? "columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-2"
+            : "flex flex-col gap-4"
         }`}
       >
         {filteredPhotos.map((photo, i) => {
@@ -92,7 +135,7 @@ const Photo = () => {
               key={photo.id}
               tabIndex={0}
               className={`cursor-pointer outline-none break-inside-avoid mb-2 p-1 rounded-md transition ${
-                selected ? "bg-[#999999]" : ""
+                selected ? "bg-gray-400" : "hover:bg-gray-200"
               } ${view === "list" ? "flex gap-3 items-center" : ""}`}
               onClick={() => setSelectedIndex(i)}
               onDoubleClick={() => setModalPhoto(photo.img)}
@@ -103,12 +146,14 @@ const Photo = () => {
               <img
                 src={photo.img}
                 alt={photo.title}
-                className={`rounded-md shadow-sm ${view === "list" ? "w-10" : "w-full"}`}
+                className={`rounded-md shadow-sm ${
+                  view === "list" ? "w-10" : "w-full"
+                }`}
               />
               <p
-                className={`text-sm mt-1 ${selected ? "bg-[#fb783d] text-white rounded px-2 py-1" : ""} ${
-                  view === "list" ? "mt-0" : "text-center"
-                }`}
+                className={`text-sm mt-1 px-2 py-1 ${
+                  selected ? "text-black font-medium" : "text-gray-700"
+                } ${view === "list" ? "mt-0" : "text-center"}`}
               >
                 {photo.title}
               </p>
@@ -116,31 +161,6 @@ const Photo = () => {
           );
         })}
       </div>
-
-      {/* Modal */}
-      {modalPhoto && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
-          onClick={() => setModalPhoto(null)}
-        >
-          <div
-            className="relative max-w-3xl max-h-[90vh] p-2"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={modalPhoto}
-              alt="Preview"
-              className="max-w-full max-h-[90vh] rounded-md shadow-lg"
-            />
-            <button
-              onClick={() => setModalPhoto(null)}
-              className="absolute top-2 right-2 text-white p-2"
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

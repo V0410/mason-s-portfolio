@@ -19,6 +19,7 @@ declare global {
   const Launchpad: typeof import('./components/Launchpad')['default']
   const MenuItem: typeof import('./components/menus/base')['MenuItem']
   const MenuItemGroup: typeof import('./components/menus/base')['MenuItemGroup']
+  const Modal: typeof import('./components/Modal')['default']
   const MouseDragger: typeof import('./components/MouseDragger')['default']
   const Photo: typeof import('./components/apps/Photo')['default']
   const Safari: typeof import('./components/apps/Safari')['default']

@@ -1,7 +1,10 @@
 import React from "react";
+import { useContext } from 'react';
+import { GlobalContext } from "../context/GlobalContext"
 import { apps, wallpapers } from "~/configs";
 import { minMarginY } from "~/utils";
 import type { MacActions } from "~/types";
+import Modal from "~/components/Modal";
 
 interface DesktopState {
   showApps: {
@@ -24,6 +27,7 @@ interface DesktopState {
 }
 
 export default function Desktop(props: MacActions) {
+  const { modalPhoto } = useContext(GlobalContext);
   const [state, setState] = useState({
     showApps: {},
     appsZ: {},
@@ -286,6 +290,7 @@ export default function Desktop(props: MacActions) {
         toggleLaunchpad={toggleLaunchpad}
         hide={state.hideDockAndTopbar}
       />
+      {modalPhoto && <Modal />}
     </div>
   );
 }

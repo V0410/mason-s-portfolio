@@ -8,6 +8,7 @@ import Boot from "~/pages/Boot";
 import "@unocss/reset/tailwind.css";
 import "uno.css";
 import "~/styles/index.css";
+import { GlobalProvider } from "./context/GlobalContext";
 
 export default function App() {
   const [login, setLogin] = useState<boolean>(false);
@@ -67,6 +68,8 @@ const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <App />
+    <GlobalProvider>
+      <App />
+    </GlobalProvider>
   </React.StrictMode>
 );

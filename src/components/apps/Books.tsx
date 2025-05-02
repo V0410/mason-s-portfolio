@@ -61,7 +61,7 @@ const Books = () => {
   return (
     <div className="w-full h-full bg-neutral-50 rounded-md shadow flex flex-col">
       {/* Top Bar */}
-      <div className="h-10 bg-c-200 flex items-center justify-between px-3">
+      <div className="h-10 bg-white flex items-center justify-between px-3 border-b border-t border-[#9b9fc9]">
         <div className="flex items-center">
           <button
             onClick={() => setView("grid")}
@@ -98,7 +98,7 @@ const Books = () => {
       {/* Book Grid/List */}
       <div
         ref={containerRef}
-        className={`flex-1 overflow-auto p-4 flex flex-wrap content-start ${view === "grid"? 'gap-4' : 'gap-1'} justify-between`}
+        className={`flex-1 overflow-auto p-4 flex flex-wrap content-start bg-[#e6e5e9] ${view === "grid"? 'gap-4' : 'gap-1'} justify-between`}
         tabIndex={0}
         onKeyDown={handleKeyDown}
       >

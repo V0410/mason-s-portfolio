@@ -85,7 +85,7 @@ const Photo = () => {
   return (
     <div className="w-full h-full bg-white rounded-md shadow-md flex flex-col">
       {/* Top Bar */}
-      <div className="h-10 flex items-center justify-between px-3 bg-c-200">
+      <div className="h-10 flex items-center justify-between px-3 bg-white border-b border-t border-[#9b9fc9]">
         <div className="flex items-center">
           <button
             onClick={() => setView("grid")}
@@ -128,7 +128,7 @@ const Photo = () => {
         ref={containerRef}
         tabIndex={0}
         onKeyDown={handleKeyDown}
-        className={`flex-1 overflow-auto p-4 ${
+        className={`flex-1 overflow-auto p-4 bg-[#e6e5e9] ${
           view === "grid"
             ? `gap-2`
             : "flex flex-col gap-1"

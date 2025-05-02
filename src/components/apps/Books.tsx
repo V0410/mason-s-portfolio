@@ -31,8 +31,6 @@ const Books = () => {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (filteredBooks.length === 0) return;
     let nextIndex = selectedIndex ?? 0;
-    setCols(view === 'list' ? 1 : (Math.floor((containerRef.current?.offsetWidth || 400) / 140) - 1));
-
     switch (e.key) {
       case "ArrowRight":
         nextIndex = Math.min(nextIndex + 1, filteredBooks.length - 1);
@@ -55,7 +53,7 @@ const Books = () => {
   };
 
   useEffect(() => {
-    setCols(view === 'list' ? 1 : (Math.floor((containerRef.current?.offsetWidth || 400) / 140)));
+    setCols(view === 'list' ? 1 : (Math.round((containerRef.current?.offsetWidth || 400) / 140) - 1));
   },[containerRef.current?.offsetWidth])
 
   return (
@@ -98,7 +96,10 @@ const Books = () => {
       {/* Book Grid/List */}
       <div
         ref={containerRef}
-        className={`flex-1 overflow-auto p-4 flex flex-wrap content-start bg-[#e6e5e9] ${view === "grid"? 'gap-4' : 'gap-1'} justify-between`}
+        className={`flex-1 overflow-auto content-start p-4 grid bg-[#e6e5e9] ${view === "grid" ? "gap-4" : "gap-1"}`}
+        style={{
+          gridTemplateColumns: view === "grid" ? `repeat(${cols}, minmax(0, 1fr))` : "none",
+        }}
         tabIndex={0}
         onKeyDown={handleKeyDown}
       >

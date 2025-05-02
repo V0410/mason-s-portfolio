@@ -85,7 +85,7 @@ const Photo = () => {
   return (
     <div className="w-full h-full bg-white rounded-md shadow-md flex flex-col">
       {/* Top Bar */}
-      <div className="h-10 bg-gray-100 flex items-center justify-between px-3 bg-gray-300">
+      <div className="h-10 flex items-center justify-between px-3 bg-c-200">
         <div className="flex items-center">
           <button
             onClick={() => setView("grid")}

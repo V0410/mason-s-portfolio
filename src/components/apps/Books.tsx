@@ -61,7 +61,7 @@ const Books = () => {
   return (
     <div className="w-full h-full bg-neutral-50 rounded-md shadow flex flex-col">
       {/* Top Bar */}
-      <div className="h-10 bg-gray-300 flex items-center justify-between px-3">
+      <div className="h-10 bg-c-200 flex items-center justify-between px-3">
         <div className="flex items-center">
           <button
             onClick={() => setView("grid")}

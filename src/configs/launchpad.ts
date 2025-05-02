@@ -82,7 +82,7 @@ const launchpadApps: LaunchpadData[] = [
   {
     id: "getluna",
     title: "Getluna",
-    img: "img/icons/launchpad/getluna.png",
+    img: "img/icons/launchpad/getluna.svg",
     link: "https://www.getluna.com/"
   },
   {

@@ -116,8 +116,7 @@ const Books = () => {
                 view === "list" && "flex flex-row items-center gap-3 w-full pl-4 py-[2px]",
                 selected ? "bg-gray-400 rounded-md" : "hover:bg-gray-300 rounded-md"
               )}
-              onClick={() => setSelectedIndex(i)}
-              onDoubleClick={() => window.open(book.link, "_blank")}
+              onClick={() => {setSelectedIndex(i); window.open(book.link, "_blank");}}
               onKeyDown={(e) => {
                 if (e.key === "Enter") window.open(book.link, "_blank");
               }}

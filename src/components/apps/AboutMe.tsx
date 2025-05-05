@@ -42,79 +42,35 @@ const About = () => {
   )
 }
 
-const Childhood = () => {
-  const childhood_list = [
+const School = () => {
+  const description = "For the kids, stay with school.. Some day you'll get to study and learn what you're interested in and it's a game changer. Thank you to all the teachers and professors who invest in our youth. ";
+  const school_list = [
     {
-      name: "INDIANA",
-      date: "1990 ~ 1995",
-      img: "indiana.jpg",
+      name: "Presbyterian",
+      date: "1995 ~ 1996",
+      img: "presbyterian.png",
       description: [
-        "I was born March 5, 1990 in Fort Wayne, Indiana and spent my early childhood in West Lafayette, near the campus of Purdue University. My family lived in an old farm house on the land that my grandfather worked.",
-        "It was in West Lafayette that I first learned to play basketball. My grandfather put up a basket at his house and my dad taught us drills in the driveway. Both of my parents played college ball and taught me everything when I was young. My father, Perky, played at Tennessee Tech and my mom, Leslie, played at Purdue. We tried a lot of sports growing up and other after school activities, but basketball was my love.",
-        "I spent a lot of time with my grandfather during those early years. He was a WWII Navy veteran, a retired Agriculture professor and a full-time farmer. We helped with various chores around the farm. He instilled in me a deep appreciation and respect for hard and smart work; on a farm, you don’t punch a clock -- you work until the task is complete."
-      ],      
-    },
-    {
-      name: "WARSAW, IN",
-      date: "1996 ~ 2001",
-      img: "warsaw.jpg",
-      description: [
-        "Just before first grade, my family moved north to Warsaw. That’s where I grew up until high school and it is where my parents still live today. People ask me what it was like growing up in a small town. Life mostly revolved around family; playing sports and having fun with my siblings. I have an older brother Miles, younger brother Marshall and younger sister, Madeline. We did almost everything together and remain very close. I attended Jefferson Elementary School and have great memories of my principal Denny Duncan. He was the first person to tell me he was going to watch me play basketball in college one day.",
-        "Swimming was a big part of my life going into middle school. I competed at the Junior Olympics in the individual medley and 100m breaststroke. Unfortunately swimming was the same season as basketball, so it was difficult to balance both sports. I knew from an early age that basketball was my passion. Indiana is a basketball state and an ideal place to grow up as a young player. My brothers and I spent our childhood playing together, which included plenty of 1-on-1 with Miles. My parents sacrificed to send us to summer camps and make a lot of opportunities possible through basketball.",
+        "Growing up, my faith was always an important part of my life, so starting out at Presbyterian gave me a strong foundation both academically and spiritually. The school emphasized discipline and character, which shaped the way I approached both schoolwork and sports early on."
       ]
     },
     {
-      name: "AAU",
-      date: "2001 ~ 2005",
-      img: "aau.jpg",
-      description: [
-        "In middle school, I joined an AAU summer team and that was my first time flying around the country to play basketball. It was a small sample of the NBA lifestyle (I now fly 50,000 miles a year). The travel was an experience, but it was more fun to compete against the best players in the country and know how we measured up. We had a lot of memorable moments together on and off the court in places like Las Vegas, Orlando and Arkansas. Later, I played for Indiana Elite which had some of the top young players from the state."
-      ]
-    }
-  ];
-
-  return (
-    <>
-      <div className=" font-medium relative text-2xl mt-2 md:mt-4 mb-4">
-        Childhood
-        <div className="absolute pt-px bg-black dark:bg-white mt-px top-full w-full">
-          <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 left-full"></div>
-          <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 right-full"></div>
-        </div>
-      </div>
-
-      {
-        childhood_list.map((project, index) => {
-          return (
-            <div key={index} className="w-full flex flex-col px-4 py-2">
-              <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900 p-2'>
-                <div className="py-2 px-4 w-full md:w-[calc(100%-280px)]">
-                  <div className="flex flex-wrap justify-between items-center">
-                    <div className=" text-base md:text-lg mr-2">{project.name}</div>
-                    <div className="text-gray-800 dark:text-gray-100 font-light text-sm">{project.date}</div>
-                  </div>
-                  <ul className=" tracking-normal leading-tight text-sm font-light ml-4 mt-1">
-                    {
-                      project.description.map((desc, index) => {
-                        return <li key={index} className="list-disc mt-1 text-gray-900 dark:text-gray-50">{desc}</li>;
-                      })
-                    }
-                  </ul>
-                </div>
-                <div className='py-2 flex items-center justify-center w-[280px]'>
-                  <img className='rounded-[8px] border-gray border-opacity-70 border object-cover' src={`img/projects/${project.img}`}></img>
-                </div>
-              </div>
-            </div>
-          )
-        })
-      }
-    </>
-  )
-}
-
-const Education = () => {
-  const education_list = [
+      name: "Jefferson",
+      date: "1996 ~ 1997, 1998- ~ 2003",
+      img: "jefferson.png",
+      description: ["After a few years at Presbyterian, I transferred to Jefferson to challenge myself more athletically. Jefferson had a great local basketball program and playing there helped me start thinking seriously about pursuing basketball at a higher level. It was also where I really began to understand the importance of teamwork and leadership."]
+    },
+    {
+      name: "Sacred Heart",
+      date: "1997 ~ 1998",
+      img: "sacred.png",
+      description: ["My time at Sacred Heart was all about growth—on and off the court. The coaches there pushed me harder than I’d ever been pushed before, and the competition forced me to step up my game. It was also a place where I learned to balance academics, athletics, and service, something that’s stayed with me."]
+    },
+    {
+      name: "Lakeview",
+      date: "2003 ~ 2005",
+      img: "lakeview.png",
+      description: ["Heading into high school, I joined Lakeview to get exposure to a broader basketball schedule and more intense competition. It was there that I first realized what it would take to play at the next level. The relationships I built with my coaches and teammates at Lakeview played a major role in shaping the player—and person—I’ve become."]
+    },
     {
       name: "CHRIST SCHOOL",
       date: "2006 ~ 2009",
@@ -126,7 +82,7 @@ const Education = () => {
     {
       name: "DUKE",
       date: "2009 ~ 2013",
-      img: "duke.jpg",
+      img: "duke.png",
       description: [
         "When I arrived at Duke I was surrounded by amazing teammates -- guys like Rodney Hood, Seth Curry, Kyrie Irving and Jon Scheyer to name a few -- and again had the chance to play with my brothers. The practices at Duke were as valuable as anything because I could compete against high-level college players everyday. In that first year of 2009-10, we won a national championship, beating Butler in an exciting Final. Over the next three years, we had some memorable moments, winning our preseason tourney every year and advancing to the postseason."
       ]
@@ -142,9 +98,11 @@ const Education = () => {
           <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 right-full"></div>
         </div>
       </div>
-
+      <div className="list-disc mt-1 text-gray-900 dark:text-gray-50 px-12 py-8">
+        {description}
+      </div>
       {
-        education_list.map((project, index) => {
+        school_list.map((project, index) => {
           return (
             <div key={index} className="w-full flex flex-col px-4 py-2">
               <div className='w-full flex flex-col items-center md:items-start md:flex-row justify-between border border-gray border-opacity-80 rounded hover:bg-gray-200 dark:hover:bg-gray-900 p-2'>
@@ -251,7 +209,6 @@ const Career = () => {
           <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 right-full"></div>
         </div>
       </div>
-
       {
         career_list.map((project, index) => {
           return (
@@ -282,6 +239,74 @@ const Career = () => {
   )
 }
 
+const Welcome = () => {
+  const description = "Welcome to my page, it should give you some insight into my life, influences, and interests. Growing up in Warsaw Indiana this has been beyond anything I could ask or imagine. The best is yet to come.";
+  return (
+  <>
+    <div className=" font-medium relative text-2xl mt-2 md:mt-4 mb-4">
+      Welcome
+      <div className="absolute pt-px bg-black dark:bg-white mt-px top-full w-full">
+        <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 left-full"></div>
+        <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 right-full"></div>
+      </div>
+    </div>
+    <p className="list-disc mt-1 text-gray-900 dark:text-gray-50 pt-12 px-24 text-xl text-center break-all">
+      {description}
+    </p>
+  </>
+)}
+
+const Venture = () => {
+  const description = "Click on the launchpad to see my venture portfolio. Some investors are thesis driven, some lean analytical.. I invite all the information and trends but ultimately support founders and teams with great vision and passion. I like to think I've supported those who are solving real issues and view their innovation as a service to the next person. Many thanks to some of the best who have invited me in and taught me along the way.";
+  return (
+  <>
+    <div className=" font-medium relative text-2xl mt-2 md:mt-4 mb-4">
+      Venture
+      <div className="absolute pt-px bg-black dark:bg-white mt-px top-full w-full">
+        <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 left-full"></div>
+        <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 right-full"></div>
+      </div>
+    </div>
+    <p className="list-disc mt-1 text-gray-900 dark:text-gray-50 pt-12 px-24 text-xl text-center break-all">
+      {description}
+    </p>
+  </>
+)}
+
+const Basketball = () => {
+  const description = "Athletes Ink (hyperlink) and myself currently run a camp in Arden NC at my HS alma mater. My Grandparents used to send me to camp as a kid and it was something I looked forward to and grew from beyond the skill and competition. A good camp breeds relationships, gets players out of their comfort zone, and exposes them to the possible. After having run camps and clinics in South Africa, Vietnam, Dubai, Jakarta, and across the US we are happy to consult on your grassroots basketball effort.";
+  return (
+  <>
+    <div className=" font-medium relative text-2xl mt-2 md:mt-4 mb-4">
+      Basketball
+      <div className="absolute pt-px bg-black dark:bg-white mt-px top-full w-full">
+        <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 left-full"></div>
+        <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 right-full"></div>
+      </div>
+    </div>
+    <p className="list-disc mt-1 text-gray-900 dark:text-gray-50 pt-12 px-24 text-xl text-center break-all">
+      {description}
+    </p>
+  </>
+)}
+
+const Shop = () => {
+  const description = "Nordstrom copied my logo. Imitation is the greatest form of flattery, but if they copy any of the items here we'll see them in court.";
+  return (
+  <>
+    <div className=" font-medium relative text-2xl mt-2 md:mt-4 mb-4">
+      Shop
+      <div className="absolute pt-px bg-black dark:bg-white mt-px top-full w-full">
+        <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 left-full"></div>
+        <div className="bg-black dark:bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 right-full"></div>
+      </div>
+    </div>
+    <p className="list-disc mt-1 text-gray-900 dark:text-gray-50 pt-12 px-24 text-xl text-center break-all">
+      {description}
+    </p>
+  </>
+)}
+
 const profile = [
   {
     id: 'about',
@@ -290,22 +315,34 @@ const profile = [
     content: <About />
   },
   {
-    id: 'childhood',
-    title: 'Childhood',
-    img: 'img/icons/about/childhood.svg',
-    content: <Childhood />
-  },
+    id: 'welcome',
+    title: 'Welcome',
+    img: 'img/icons/about/welcome.png',
+    content: <Welcome />
+  },  
   {
-    id: 'education',
-    title: 'Education',
+    id: 'school',
+    title: 'School',
     img: 'img/icons/about/education.svg',
-    content: <Education />
+    content: <School />
   },
   {
-    id: 'career',
-    title: 'Career',
-    img: 'img/icons/about/career.png',
-    content: <Career />
+    id: 'venture',
+    title: 'Venture',
+    img: 'img/icons/about/venture.png',
+    content: <Venture />
+  },
+  {
+    id: 'basketball ',
+    title: 'Basketball',
+    img: 'img/icons/about/basketball.png',
+    content: <Basketball />
+  },
+  {
+    id: 'shop',
+    title: 'Shop',
+    img: 'img/icons/about/shop.png',
+    content: <Shop />
   }
 ]
 

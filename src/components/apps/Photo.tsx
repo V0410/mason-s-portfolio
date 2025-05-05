@@ -145,8 +145,7 @@ const Photo = () => {
               className={`cursor-pointer outline-none break-inside-avoid p-1 rounded-md transition ${
                 selected ? "bg-gray-400" : "hover:bg-gray-300"
               } ${view === "list" ? "flex gap-3 items-center pl-4" : ""}`}
-              onClick={() => setSelectedIndex(i)}
-              onDoubleClick={() => setModalPhoto(photo.img)}
+              onClick={() => {setSelectedIndex(i); setModalPhoto(photo.img);}}
               onKeyDown={(e) => {
                 if (e.key === "Enter") setModalPhoto(photo.img);
               }}

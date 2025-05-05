@@ -3,6 +3,16 @@ import type { AppsData } from "~/types";
 
 const apps: AppsData[] = [
   {
+    id: "aboutme",
+    title: "About Me",
+    desktop: true,
+    width: 1024,
+    height: 768,
+    show: false,
+    img: "img/icons/user.png",
+    content: <AboutMe />
+  },
+  {
     id: "launchpad",
     title: "Launchpad",
     desktop: false,
@@ -13,17 +23,7 @@ const apps: AppsData[] = [
     title: "Shop",
     desktop: false,
     img: "img/icons/shop.png",
-  },
-  {
-    id: "aboutme",
-    title: "About Me",
-    desktop: true,
-    width: 1024,
-    height: 768,
-    show: false,
-    img: "img/icons/user.png",
-    content: <AboutMe />
-  },
+  },  
   {
     id: "basketballcamp",
     title: "BasketballCamp",
@@ -55,6 +55,13 @@ const apps: AppsData[] = [
     desktop: false,
     img: "img/icons/contacts/linkedin.png",
     link: "https://www.linkedin.com/in/mason-plumlee/"
+  },
+  {
+    id: "unnamed",
+    title: "Unnamed",
+    desktop: false,
+    img: "img/icons/unnamed.png",
+    link: "https://www.eatwellhospitality.com/"
   },  
   {
     id: "book",

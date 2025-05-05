@@ -309,12 +309,6 @@ const Shop = () => {
 
 const profile = [
   {
-    id: 'about',
-    title: 'About',
-    img: 'img/icons/about/about.svg',
-    content: <About />
-  },
-  {
     id: 'welcome',
     title: 'Welcome',
     img: 'img/icons/about/welcome.png',

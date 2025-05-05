@@ -44,6 +44,12 @@ const photos: PhotoData[] = [
     img: "/img/photo/museum.jpg",
   },
   {
+    id: "effort",
+    title: "Effort",
+    description: "",
+    img: "/img/photo/effort.jpg",
+  },
+  {
     id: "ski",
     title: "Ski",
     description: "This is my photo",

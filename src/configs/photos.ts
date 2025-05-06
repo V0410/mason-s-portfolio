@@ -26,6 +26,12 @@ const photos: PhotoData[] = [
     img: "/img/photo/handshake.jpg",
   },
   {
+    id: "photo",
+    title: "Photo",
+    description: "This is my photo",
+    img: "/img/photo/photo.jpg",
+  },
+  {
     id: "disert",
     title: "Disert",
     description: "This is my photo in disert",
